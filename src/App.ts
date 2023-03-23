@@ -11,7 +11,8 @@ class App {
 
     run() {
         return new Promise<http.Server>((resolve, reject) => {
-            const server: http.Server = this.app.listen(this.port);
+            const server = this.app.listen(this.port);
+            // resolve(server);
             server.on('listening', () => {
                 console.log(`Now listening on port ${this.port}`)
                 resolve(server)
