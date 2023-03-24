@@ -1,13 +1,19 @@
 import express, {Express} from "express";
-import socket, {Server} from "socket.io"
 import * as http from "http";
+
+const socket = require('socket.io');
 class App {
     private app: Express;
     private readonly port: any;
     constructor(port: any) {
         this.app = express();
         this.port = port;
+        // this.app.use(express.static('/public'));
+        this.app.get('/', (req, res) => {
+            res.sendFile(__dirname + '/views/index.html')
+        })
     }
+
 
     run() {
         return new Promise<http.Server>((resolve, reject) => {
@@ -22,6 +28,10 @@ class App {
             })
 
         })
+
+
+
+
     }
 
 
