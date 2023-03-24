@@ -1,4 +1,4 @@
 node_modules
 .env
-dist
-!dist/index.html
+/dist
+!/dist/index.html
